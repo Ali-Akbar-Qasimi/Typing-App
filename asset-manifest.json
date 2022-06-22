@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Typing-App/static/css/main.88e0db74.css",
-    "main.js": "/Typing-App/static/js/main.96d36bd2.js",
+    "main.css": "/Typing-App/static/css/main.12378f96.css",
+    "main.js": "/Typing-App/static/js/main.3209f91f.js",
     "index.html": "/Typing-App/index.html",
-    "main.88e0db74.css.map": "/Typing-App/static/css/main.88e0db74.css.map",
-    "main.96d36bd2.js.map": "/Typing-App/static/js/main.96d36bd2.js.map"
+    "main.12378f96.css.map": "/Typing-App/static/css/main.12378f96.css.map",
+    "main.3209f91f.js.map": "/Typing-App/static/js/main.3209f91f.js.map"
   },
   "entrypoints": [
-    "static/css/main.88e0db74.css",
-    "static/js/main.96d36bd2.js"
+    "static/css/main.12378f96.css",
+    "static/js/main.3209f91f.js"
   ]
 }
