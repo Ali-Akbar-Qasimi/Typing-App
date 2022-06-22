@@ -1,18 +1,18 @@
 import React from 'react'
 
 export default function TypingApp() {
-
-
-    //console.log(window.navigator.geolocation)
-
-
+    const ref = React.useRef(null)
     const API_URL = 'https://api.quotable.io/random'
     const [nextQuote, setNextQuote] = React.useState(false)
     const [quote, setQuote] = React.useState('')
+    const [isLoading,setIsLoading] = React.useState(false)
     React.useEffect(() => {
+        setIsLoading(true)
         fetch(API_URL)
         .then(response => response.json())
         .then(data => {
+            ref.current.focus()
+            setIsLoading(false)
             setQuote(() =>{
                 let text = data.content
                 let splittedText = text.split('')
@@ -30,6 +30,7 @@ export default function TypingApp() {
             
         })
     },[nextQuote])
+
     let text = document.querySelector('.text')
     let input = document.querySelector('.input')
     function handleChange(){
@@ -65,14 +66,22 @@ export default function TypingApp() {
         }
     }
 
+    function newQoute(){
+        setNextQuote(prevNextQuote => !prevNextQuote)
+        input.value = null
+    }
 
-    
+
     return (
         <div>
             <h1 className='header'>Typing App</h1>
             <div className='container'>
-                <div className='text'>{quote}</div>
-                <textarea onChange={handleChange} className='input'></textarea>
+                {
+                    isLoading ? <div className='loading'></div>:
+                    <div onClick={()=> ref.current.focus()} className='text'>{quote}</div>
+                }
+                <textarea ref={ref} onChange={handleChange} className='input'></textarea>
+                <button onClick={newQoute} className='btn-next'>New Qoute</button>
             </div>
         </div>
     )
